@@ -1,0 +1,215 @@
+<!doctype html>
+	<head>
+		<style>
+			/* CSS comes here */
+			html {
+				height: 100%;
+			}
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			    font-family: arial;
+				background-color: #181818;
+				color: white;
+			}
+			h2 {
+				margin: 0;
+			}
+			p {
+				margin: 0;
+			}
+			button {
+			    padding:10px;
+			    background-color:#6a67ce;
+			    color: #FFFFFF;
+			    border: 0px;
+			    cursor:pointer;
+			    border-radius: 5px;
+			}
+			#output {
+			    padding:10px;
+			    line-height:30px;
+			}
+			#interim {
+			    padding:10px;
+			    line-height:30px;
+			}
+			#main-container-wrapper {
+				display: flex;
+				height: 100%;
+				justify-content: center;
+				align-content: center;
+				flex-wrap: wrap;
+			}
+			#main-container {
+				width: 850px;
+				height: 700px;
+				background-color: #262626;
+				border-radius: 10px;
+				margin: 10px 20px;
+				display: grid;
+				box-shadow: 0 8px 6px -6px #00000023;
+			}
+			#bot-profile {
+				text-align: center;
+				user-select: none;
+				pointer-events: none;
+			}
+			#bot-profile-pic {
+				width: 200px;
+				height: 200px;
+				margin-top: 16px;
+				border-radius: 50%;
+				border: solid 3px white;
+				user-select: none;
+				pointer-events: none;
+			}
+			#bot-profile-name {
+				color: white;
+				font-size: 38px;
+				margin: 2px 0px;
+			}
+			#mic-container {
+				display: flex;
+				justify-self: baseline;
+				justify-content: center;
+				width: 100%;
+				flex-wrap: wrap-reverse;
+				align-items: baseline;
+				margin-bottom: 16px;
+			}
+			#mic-button {
+				background-color: lightseagreen;
+				border-radius: 50%;
+				height: 100px;
+				width: 100px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: 0 8px 6px -6px #000;
+			}
+			#mic-img {
+				width: 64px;
+				height: 64px;
+				user-select: none;
+			}
+			.effect-pulse {
+				background-color: lightseagreen;
+				color: #fff;
+				animation: pulse 2000ms infinite;
+				will-change: transform,box-shadow;
+			}
+			@keyframes pulse {
+				0% {
+					transform: scale(.95);
+					box-shadow: 0 0 0 0 rgba(72, 222, 241, 0.7)
+				}
+
+				70% {
+					transform: scale(1);
+					box-shadow: 0 0 0 10px transparent
+				}
+
+				100% {
+					transform: scale(.95);
+					box-shadow: 0 0 0 0 transparent
+				}
+			}
+		</style>
+		<title>JavaScript Speech to Text</title>
+	</head>
+	<body>
+		<!-- <h2>JavaScript Speech to Text</h2>
+        <p>Click on the below button and speak something...</p>
+        <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
+        <div id="output"></div>
+		<div id="interim"></div> -->
+		<div id="main-container-wrapper">
+			<div id="main-container">
+				<div id="bot-profile">
+					<img id="bot-profile-pic" src="./Victor.jpg" alt="Victor" draggable="false" ondragstart="return false;">
+					<h3 id="bot-profile-name">Victor</h3>
+				</div>
+				<div id="mic-container">
+					<div id="mic-button" class="effect-pulse">
+						<img id="mic-img" src="./mic.png" alt="microphone" draggable="false" ondragstart="return false;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+
+            //navigator.mediaDevices.getUserMedia({audio:true});
+			var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+			var recognition = new SpeechRecognition();
+			var isRunning = false;
+
+		    function runSpeechRecognition() {
+                var output = document.getElementById("output");
+                var action = document.getElementById("action");
+				var interim = document.getElementById("interim");
+
+                recognition.continuous = true;
+                recognition.lang = "en-US";
+				recognition.interimResults = true;
+
+                recognition.onstart = function() {
+                    action.innerHTML = "<small>listening, please speak...</small>";
+                };
+                
+                recognition.onspeechend = function() {
+                    action.innerHTML = "<small>stopped listening, hope you are done...</small>";
+                }
+
+				recognition.addEventListener("end", () => {
+  					console.log("Speech recognition service disconnected");
+					isRunning = false;
+					setTimeout(() => {
+						if (!isRunning) {
+							recognition.start();
+						}
+					}, 100);
+				});
+
+				recognition.addEventListener("start", () => {
+  					isRunning = true;
+				});
+              
+                recognition.onresult = function(event) {
+					//console.log(event);
+					if (event.results[0].isFinal) {
+						var transcript = event.results[0][0].transcript;
+						var confidence = event.results[0][0].confidence;
+						output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+						interim.innerHTML = "";
+					}
+					else {
+						let interimString = "";
+						for(let i = 0; i < event.results.length; i++) {
+							interimString += event.results[i][0].transcript;
+						}
+						// event.results.forEach(result => {
+						// 	interimString += result[0].transcript;
+						// });
+
+						interim.innerHTML = interimString;
+						console.log(interimString);
+						// console.log(event);
+						return;
+					}
+
+					recognition.stop();
+					setTimeout(() => {
+						if (!isRunning) {
+							recognition.start();
+						}
+					}, 100);
+                };
+              
+                 recognition.start();
+	        }
+		</script>
+	</body>
+</html>
