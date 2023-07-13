@@ -1,0 +1,148 @@
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    background-color: #181818;
+    color: white;
+    scrollbar-width: thin;
+    scrollbar-color: #4d4d4f #181818;
+}
+
+a {
+    text-decoration: none;
+    color: none;
+}
+
+#main-container-wrapper {
+    height: 100%;
+    overflow-y: auto;
+}
+
+#main-container {
+    max-width: 650px;
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    /* margin-top: 12px; */
+    margin-top: 38px;
+}
+
+#header-wrapper {
+    height: 76px;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    margin-top: 16px;
+}
+
+#header {
+    margin: auto;
+    width: max-content;
+    cursor: pointer;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 48px;
+    width: auto;
+    user-select: none;
+    color: white;
+}
+
+h1 img {
+    height: 64px;
+    width: 64px;
+    text-align: center;
+    margin-bottom: -12px;
+}
+
+.bot-item-wrapper {
+    background-color: #262626;
+    display: flex;
+    flex-flow: row;
+    border-radius: 16px;
+    user-select: none;
+    cursor: pointer;
+    margin: 0px 12px 18px 12px;
+}
+
+.bot-item-wrapper a {
+    display: flex;
+    flex: 1;
+}
+
+.bot-item-wrapper:hover {
+    background-color: #292929;
+    transform: scale(1.005);
+    transition: 0.05s;
+}
+
+.bot-item-pic {
+    margin: 8px 0px 8px 12px;
+    user-select: none;
+}
+
+.bot-item-pic img {
+    border-radius: 50%;
+    width: 86px;
+    height: 86px;
+    user-select: none;
+    border: solid 2px white;
+}
+
+.bot-item-info {
+    display: flex;
+    flex-flow: column;
+    margin: 12px 12px 0px 12px;
+    flex: 1;
+}
+
+.bot-item-name {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.bot-item-description {
+    color: rgba(255, 255, 255, 0.808);
+    max-width: 70%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+.bot-item-button {
+    min-width: 96px;
+    background-color: rgb(51 51 51);
+    border-radius: 0px 16px 16px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bot-item-wrapper:hover .bot-item-button {
+    background-color: rgb(54, 54, 54);
+}
+
+.bot-item-button img {
+    height: 48px;
+    width: 48px;
+    margin-right: 6px;
+}
+
+#more-soon {
+    text-align: center;
+    font-weight: 600;
+    color: #ffffff8a;
+    user-select: none;
+    font-size: 18px;
+    margin-bottom: 24px;
+}

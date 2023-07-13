@@ -1,38 +1,80 @@
 <!doctype html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
-		<title>JavaScript Speech to Text</title>
+		<title>Jibber Jabber - AI Personalities</title>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico">
+		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<div id="main-container-wrapper">
-			<div id="main-container">
-				<div id="bot-profile">
-					<img id="bot-profile-pic" src="./Victor.jpg" alt="Victor" draggable="false" ondragstart="return false;">
-					<h3 id="bot-profile-name">Victor</h3>
-				</div>
-				<div id="chat-container">
-					<div id="chat-inner">
-						<!-- <div class="chat-message-wrapper">
-							<div class="chat-message">
-								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-							</div>
-						</div> -->
-						<div id="chat-footer"></div>
-					</div>
-				</div>
-				<div id="mic-container">
-					<div id="mic-button-wrapper" class="tooltip">
-						<div id="mic-button" class="" onclick="micButton()">
-							<img id="mic-img" src="./mic.png" alt="microphone" draggable="false" ondragstart="return false;">
-						</div>
-						<div id="mic-tooltip" class="top">
-							<h3>Click the microphone icon below to start talking to Victor!</h3>
-							<i></i>
-						</div>
-					</div>
+			<div id="header-wrapper">
+				<div id="header">
+					<a href="/">
+						<h1>
+							Jibber <img src="logo.png" alt="logo" draggable="false" ondragstart="return false;"> <em>Jabber</em>
+						</h1>
+					</a>
 				</div>
 			</div>
+			<div id="main-container">
+                <div class="bot-item-wrapper">
+                    <a href="/victor">
+                        <div class="bot-item-pic">
+                            <img src="Victor.jpg" alt="Victor" draggable="false" ondragstart="return false;">
+                        </div>
+                        <div class="bot-item-info">
+                            <div class="bot-item-name">Victor</div>
+                            <div class="bot-item-description" title="Rude and arrogant. Not someone you should take advice from.">Rude and arrogant. Not someone you should take advice from.</div>
+                        </div>
+                        <div class="bot-item-button">
+                            <img src="arrow.png" alt="arrow" draggable="false" ondragstart="return false;">
+                        </div>
+                    </a>
+                </div>
+                <div class="bot-item-wrapper">
+                    <a href="/angie">
+                        <div class="bot-item-pic">
+                            <img src="Angie.jpg" alt="Angie" draggable="false" ondragstart="return false;">
+                        </div>
+                        <div class="bot-item-info">
+                            <div class="bot-item-name">Angie</div>
+                            <div class="bot-item-description" title="Always bubbly and uplifting. She's here to brighten your day!">Always bubbly and uplifting. She's here to brighten your day!</div>
+                        </div>
+                        <div class="bot-item-button">
+                            <img src="arrow.png" alt="arrow" draggable="false" ondragstart="return false;">
+                        </div>
+                    </a>
+                </div>
+                <div class="bot-item-wrapper">
+                    <a href="/clyde">
+                        <div class="bot-item-pic">
+                            <img src="Clyde.jpg" alt="Clyde" draggable="false" ondragstart="return false;">
+                        </div>
+                        <div class="bot-item-info">
+                            <div class="bot-item-name">Clyde</div>
+                            <div class="bot-item-description" title="* Beep beep boop bop ---- sYsTEm OvERloAd *"><em>* Beep beep boop bop ---- sYsTEm OvERloAd *</em></div>
+                        </div>
+                        <div class="bot-item-button">
+                            <img src="arrow.png" alt="arrow" draggable="false" ondragstart="return false;">
+                        </div>
+                    </a>
+                </div>
+                <div class="bot-item-wrapper">
+                    <a href="/harold">
+                        <div class="bot-item-pic">
+                            <img src="Harold.jpg" alt="Harold" draggable="false" ondragstart="return false;">
+                        </div>
+                        <div class="bot-item-info">
+                            <div class="bot-item-name">Harold</div>
+                            <div class="bot-item-description" title="Wise beyond years. Let him grace you with his knowledge.">Wise beyond years. Let him grace you with his knowledge.</div>
+                        </div>
+                        <div class="bot-item-button">
+                            <img src="arrow.png" alt="arrow" draggable="false" ondragstart="return false;">
+                        </div>
+                    </a>
+                </div>
+                <div id="more-soon">More coming soon!</div>
+			</div>
 		</div>
-		<script src="script.js"></script>
+		<script src="victor.js"></script>
 	</body>
 </html>

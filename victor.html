@@ -1,0 +1,43 @@
+<!doctype html>
+	<head>
+		<title>Victor - Jibber Jabber</title>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico">
+		<link rel="stylesheet" href="victor.css">
+	</head>
+	<body>
+		<div id="main-container-wrapper">
+			<div id="header-wrapper">
+				<div id="header">
+					<a href="/">
+						<h1>
+							Jibber <img src="logo.png" alt="logo" draggable="false" ondragstart="return false;"> <em>Jabber</em>
+						</h1>
+					</a>
+				</div>
+			</div>
+			<div id="main-container">
+				<div id="bot-profile">
+					<img id="bot-profile-pic" src="./Victor.jpg" alt="Victor" draggable="false" ondragstart="return false;">
+					<h3 id="bot-profile-name">Victor</h3>
+				</div>
+				<div id="chat-container">
+					<div id="chat-inner">
+						<div id="chat-footer"></div>
+					</div>
+				</div>
+				<div id="mic-container">
+					<div id="mic-button-wrapper" class="tooltip">
+						<div id="mic-button" class="" onclick="micButton()">
+							<img id="mic-img" src="./mic.png" alt="microphone" draggable="false" ondragstart="return false;">
+						</div>
+						<div id="mic-tooltip" class="top">
+							<h3>Click the microphone icon below to start talking to Victor!</h3>
+							<i></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="victor.js"></script>
+	</body>
+</html>
