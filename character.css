@@ -58,8 +58,8 @@ p {
 }
 
 #bot-profile-pic {
-    max-width: 128px;
-    max-height: 200px;
+    width: 128px;
+    height: 128px;
     margin-top: 16px;
     border-radius: 50%;
     border: solid 3px white;
@@ -71,6 +71,7 @@ p {
     color: white;
     font-size: 32px;
     margin: 0px 0px;
+    margin-top: -8px;
 }
 
 #mic-container {
