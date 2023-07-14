@@ -1,0 +1,49 @@
+<!doctype html>
+	<head>
+		<title>Clyde - Jibber Jabber</title>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico">
+		<link rel="stylesheet" href="character.css">
+	</head>
+	<body>
+		<div id="main-container-wrapper">
+			<div id="header-wrapper">
+				<div id="header">
+					<a href="/">
+						<h1>
+							Jibber <img src="/img/logo.png" alt="logo" draggable="false" ondragstart="return false;"> <em>Jabber</em>
+						</h1>
+					</a>
+				</div>
+			</div>
+			<div id="main-container">
+				<div id="bot-profile">
+					<img id="bot-profile-pic" src="/img/Clyde.jpg" alt="Clyde" draggable="false" ondragstart="return false;">
+					<h3 id="bot-profile-name">Clyde</h3>
+				</div>
+				<div id="chat-container">
+					<div id="chat-inner">
+						<div id="chat-footer"></div>
+					</div>
+				</div>
+				<div id="mic-container">
+					<div id="mic-button-wrapper" class="tooltip">
+						<div id="mic-button" class="" onclick="micButton()">
+							<img id="mic-img" src="/img/mic.png" alt="microphone" draggable="false" ondragstart="return false;">
+						</div>
+						<div id="mic-tooltip" class="top">
+							<h3>Click the microphone icon below to start talking to Clyde!</h3>
+							<i></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="modal" class="modal" onclick="closeModal()">
+			<div class="modal-content">
+			  <p>Your browser is not suppported by Jibber Jabber. Please use a supported browser such as Chrome, Edge, or Safari.</p>
+			</div>
+		</div>
+		<script>const characterName = "clyde"</script>
+		<script src="character.js"></script>
+	</body>
+</html>
