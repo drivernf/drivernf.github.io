@@ -137,7 +137,7 @@ function runSpeechRecognition() {
             chatScrollToBottom();
 
             const msg = encodeURIComponent(transcript);
-            fetch('https://api.jibberjabber.app/victor/' + msg).then(response => {
+            fetch('https://api.jibberjabber.app/angie/' + msg).then(response => {
                 if (response.ok) {
                     const botMsg = response.headers.get('content-type');
                     return Promise.all([response.blob(), botMsg]);
