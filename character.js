@@ -184,11 +184,14 @@ function runSpeechRecognition() {
                     chatScrollToBottom();
                     throw new Error('Error downloading the file.');
                 }
-            }).then(([blob, botMsg]) => {
-                const audio = new Audio(URL.createObjectURL(blob));
-                audio.play();
-                audio.addEventListener("loadeddata", () => {
-                    let dur = (audio.duration * 1000) - 800;
+            }).then(async([blob, botMsg]) => {
+                const botAudio = new Audio(URL.createObjectURL(blob));
+                if (characterName === "clyde") {
+                    await playWithEffects(blob);
+                    botAudio.volume = 0.0;
+                }
+                botAudio.onplaying = () => {
+                    let dur = (botAudio.duration * 1000) - 800;
                     if (dur < 300) dur = 300;
                     typeMessage(botMsg, dur);
                     chatScrollToBottom();
@@ -200,7 +203,8 @@ function runSpeechRecognition() {
                         setMic(true);
                         document.getElementById('mic-button').classList = "effect-pulse";
                     }, dur);
-                });
+                }
+                botAudio.play();
             }).catch(error => {
                 console.error('Error:', error);
                 setChatMessageText(true, currentChild, "I'm having trouble thinking.");
