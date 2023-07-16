@@ -21,6 +21,8 @@ a {
 #main-container-wrapper {
     height: 100%;
     overflow-y: auto;
+    display: flex;
+    flex-flow: column;
 }
 
 #main-container {
@@ -145,4 +147,14 @@ h1 img {
     user-select: none;
     font-size: 18px;
     margin-bottom: 24px;
+}
+
+.footer {
+    display: flex;
+    align-self: baseline;
+    width: 100%;
+    justify-content: center;
+    opacity: 0.75;
+    padding-bottom: 5px;
+    user-select: none;
 }
