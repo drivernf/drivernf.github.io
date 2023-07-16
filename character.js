@@ -1,4 +1,5 @@
 var micActive = false;
+var uuid = crypto.randomUUID();
 
 function setMic(active) {
     const micBtnElement = document.getElementById('mic-button');
@@ -169,7 +170,7 @@ function runSpeechRecognition() {
             chatScrollToBottom();
 
             const msg = encodeURIComponent(transcript);
-            fetch(`https://api.jibberjabber.app/${characterName}/` + msg).then(response => {
+            fetch(`https://api.jibberjabber.app/${characterName}/${uuid}/${msg}`).then(response => {
                 if (response.ok) {
                     const botMsg = response.headers.get('content-type');
                     return Promise.all([response.blob(), botMsg]);
